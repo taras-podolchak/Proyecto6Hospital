@@ -1,0 +1,34 @@
+<HR/> 	
+<br>
+
+<table class="table">
+	<tr>
+		<th style="width: 50px;">Num.</th>
+		<th style="width: 225px;">Apellido</th>
+		<th style="width: 225px;">Oficio</th>
+		<th></th>
+	</tr>
+	<tr>
+		{% for empleado in empleados %}
+			<td>{{ empleado.empNo}}</td>
+			<td>{{ empleado.apellido }}</td>
+			<td>{{ empleado.oficio }}</td>
+			<td><a style=" float:right" href="#" onclick="verEmpleado('{{ empleado.empNo }}');">Mostrar Informe</a></td>
+		</tr>
+	{% endfor %}
+</table>
+
+	<div id="detalleEmpleado"></div>
+
+	<script>
+		function verEmpleado(empNo) {
+			$.ajax({
+				type: "GET",
+				url: "{{ path('getEmpleadoHiperVinculo') }}",
+				data: "empNo=" + empNo,
+				success: function (msg) {
+					$("#detalleEmpleado").html(msg);
+				}
+				});
+			}
+	</script>

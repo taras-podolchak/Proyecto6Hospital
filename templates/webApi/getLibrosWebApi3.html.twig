@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Titulo</th>
+				<th>Subtitulo</th>
+				<th>Fecha de Publicación</th>
+				<th>Idioma</th>
+				<th>Editora</th>
+				<th>Autores</th>
+				<th>Foto</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for dato in datos %}
+				<tr>
+					<td>{{dato.volumeInfo['title'] }}</td>
+
+					{% if dato.volumeInfo['subtitle'] is defined%}
+						<td>{{dato.volumeInfo['subtitle'] }}</td>
+					{% else %}
+						<td></td>
+					{% endif %}
+
+
+					<td>{{dato.volumeInfo['publishedDate'] }}</td>
+					<td>{{dato.volumeInfo['language'] }}</td>
+
+					{% if dato.volumeInfo['publisher'] is defined%}
+						<td>{{dato.volumeInfo['publisher'] }}</td>
+					{% else %}
+						<td></td>
+					{% endif %}
+
+
+					{% if dato.volumeInfo['authors'] is defined%}
+						<td>
+							{% for dato in dato.volumeInfo['authors'] %}
+								{{dato}}
+								,
+							{% endfor %}
+						</td>
+					{% else %}
+						<td></td>
+					{% endif %}
+
+						{% if dato.volumeInfo['imageLinks']['thumbnail'] is defined%}
+						<td>
+						<img src="{{dato.volumeInfo['imageLinks']['thumbnail'] }}" width="100" height="130" align="center">
+						</td>
+					{% else %}
+						<td></td>
+					{% endif %}
+
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	CRUD departamentos
+{% endblock %}
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>CRUD Departamentos</h1>
+
+
+	<form method="POST" action="{{ path('crud') }}">
+
+		<div>
+			<label class="form-label">
+				Id
+			</label>
+			<input type="text" name="txtId" class="form-control" id="txtNombre">
+			<br>
+			<label class="form-label">
+				Nuevo Nombre
+			</label>
+			<input type="text" name="txtNombre" class="form-control" id="txtNombre">
+		</div>
+		<br>
+		<div>
+			<label class="form-label">
+				Nueva Localidad
+			</label>
+			<input type="text" name="txtLoc" class="form-control" id="txtLoc">
+		</div>
+
+		<br>
+
+		<button type="submit" name="boton" value="eliminar" class="btn btn-primary">
+			Eliminar departamento
+		</button>
+		<button type="submit" name="boton" value="modificar" class="btn btn-primary">
+			Modificar departamento
+		</button>
+		<button type="submit" name="boton" value="crear" class="btn btn-primary">
+			Crear departamento
+		</button>
+		<button type="submit" name="boton" value="mayorDe10" class="btn btn-primary">
+			Mostrar mayores de 10
+		</button>
+
+		<br>
+		<br>
+
+		<label class="form-label">
+			Buscar por el Nombre
+		</label>
+		<input type="search" name="txtBuscarNombre" class="form-control" id="txtNombre" oninput="submit">
+		<br>
+		<button type="submit" name="boton" value="Buscar" class="btn btn-primary">
+			Buscar
+		</button>
+
+		<br>
+		<br>
+
+
+		<label class="form-label">
+			Buscar Nombre por la letra
+		</label>
+		<input type="search" name="txtBuscarLetra" class="form-control" id="txtNombre" oninput="submit">
+		<br>
+		<button type="submit" name="boton" value="BuscarLetra" class="btn btn-primary">
+			Buscar
+		</button>
+	</form>
+
+	<br>
+	<br>
+
+	<table class="table">
+
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Localidad</th>
+		</tr>
+
+
+		{% for dpartamento in dpartamentos %}
+			<tr>
+				<td>{{ dpartamento.deptNo }}</td>
+				<td>{{ dpartamento.dnombre }}</td>
+				<td>{{ dpartamento.loc }}</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+	{% if mensaje is defined %}
+		<h2 style='color:red'>
+			{{mensaje}}
+		</H2>
+	{% endif %}
+{% endblock %}

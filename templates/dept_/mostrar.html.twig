@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Modificar departamentos
+{% endblock %}
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Mostrar Departamentos</h1>
+
+	<form name="form1" method="post" action="{{ path('getDepart') }}">
+		Departamento:
+		<select name="cmbDepart" onchange="form1.submit()">
+			{% for dept in dpartamentos %}
+				{% if idDep is defined and dept.deptNo == idDep %}
+					<option value="{{ dept.deptNo }}" selected>{{ dept.dnombre }}</option>
+				{% else %}
+					<option value="{{ dept.deptNo }}">{{ dept.dnombre }}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+	</form>
+	{% if dpartamento is defined %} 
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Localidad</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{ dpartamento.deptNo }}</td>
+					<td>{{ dpartamento.dnombre }}</td>
+					<td>{{ dpartamento.loc }}</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

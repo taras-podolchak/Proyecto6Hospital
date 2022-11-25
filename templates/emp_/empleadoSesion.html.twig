@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<table class="table">
+		<tr>
+			<th style="width: 225px;">Apellido</th>
+			<th style="width: 225px;">Oficio</th>
+			<th style="width: 225px;">Fecha altalta</th>
+			<th style="width: 225px;"></th>
+		</tr>
+
+		{% for empleado in empleados %}
+			<tr>
+				<td>{{ empleado.apellido }}</td>
+				<td>{{ empleado.oficio }}</td>
+				<td>{{ empleado.fechaAlt ? empleado.fechaAlt|date('d-m-Y') : '' }}</td>
+
+				{% set existe = 0 %}
+				{% if app.session.get('arr') %}
+					{% for empleId in app.session.get('arr') %}
+						{%	if empleado.empNo == empleId %}
+							{% set existe = 1 %}
+						{% endif %}
+						{% else %}
+					{% endfor %}
+					{%	if existe == 1 %}
+						<td><img src="/correcto.jpg" width="30" height="30" align="center"></td>
+					{% else %}
+						<td>
+							<a style=" float:right" href="{{ path('method', {id: empleado.empNo}) }}">Almacenar</a>
+						</td>
+					{% endif %}
+				{% else %}
+					<td>
+						<a style=" float:right" href="{{ path('method', {id: empleado.empNo}) }}">Almacenar</a>
+					</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+	</table>
+	<button class="btn btn-primary">
+		<a style=" color:azure" href="{{ path('methodClear') }}">limpiar</a>
+	</button>
+	<button class="btn btn-primary">
+		<a style=" color:azure" href="{{ path('methodCalcular') }}">Calcular beneficios</a>
+	</button>
+	{% if arrEmp is defined %}
+		<table class="table">
+			<tr>
+				<th style="width: 225px;">Apellido</th>
+				<th style="width: 225px;">Pulsa para quitar</th>
+			</tr>
+			{% for empleado in arrEmp %}
+				<tr>
+					<td>{{empleado.apellido}}</td>
+					<td>
+						<button class="btn btn-primary">
+							<a style=" color:azure" href="{{ path('methodClearOne', {idClear: empleado.empNo}) }}">Quitar</a>
+						</button>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+	{% if aviso is defined %}
+		<h3>{{aviso}}</h3>
+	{% endif %}
+{% endblock %}

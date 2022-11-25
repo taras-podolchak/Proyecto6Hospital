@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<h2 style='color:blue'>VARIABLES SESSION
+	</H2>
+
+	<form method="post" action="{{ path('verPagina2') }}">
+		<button type="submit" name="datos" value="Session">
+			Mostrar variables session
+		</button>
+
+
+	</form>
+{% endblock %}

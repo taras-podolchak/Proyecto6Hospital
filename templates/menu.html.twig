@@ -1,0 +1,127 @@
+<nav class="navbar bg-light fixed-top">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{ path('nuevoDepart') }}">Hospital</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu Hospital</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('nuevoDepart') }}">Alta Dep</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('modDepart') }}">Update Dep</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('elimDepart') }}">Delete Dep</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getDepartList') }}">Mostrar Dep</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('formCrearCliente') }}">Alta Cliente</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('sumar_multiplicar') }}">Sum/multip num</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('crudForm') }}">CRUD Dep</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('paginar') }}">Paginator</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('eliminarDepart') }}">Eliminar Dept con Procedure</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('procedureDoctorAlta') }}">Crear Doctor con Procedure</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('inicio') }}">Ajax</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('inicioAjaxHospital') }}">Ajax Hospital</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('inicioHiperVinculo') }}">Ajax HiperVinculo</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('hiperVinculoEmp') }}">Ajax HiperVinculo Emp</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('generatePDF') }}">Generate PDF</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('verPagina1') }}">Inicio de sesion</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('enfermoInicio') }}">Inicio de sesion enfermo</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('empleadoConSesion') }}">Empleado con sesion</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_emp_index') }}">INTERNACIONALIZACIÓN</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('inicioCarnet') }}">inicioCarnet</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('homePeliculas') }}">Peliculas</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_dashboard') }}">Inicio sesion dashboard</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getEmpleadosWebApi1') }}">get Empleados WebApi1</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getJugadoresWebApi2') }}">get Jugadores WebApi2</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getLibrosWebApi3') }}">get Libros WebApi3</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getCentroDeDiaWebApi4') }}">get Centro De Dia WebApi4</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getPeliculasWebApi5') }}">get Peliculas WebApi5 </a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getPersonasWebApi6') }}">get Personas WebApi6 (Symfony)</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getEmpApiWeb7') }}">get Emp ApiWeb7 (Symfony)</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getPersonaApiWebNET8') }}">get Persona ApiWeb8 (.NET)</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('getPersonasApiWebNET9') }}">get Personas ApiWeb9 (.NET)</a>
+					</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>

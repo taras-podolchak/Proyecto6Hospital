@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Apellido</th>
+				<th>Oficio</th>
+				<th>Salario</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for e in datosEmp %}
+				<tr>
+					<td>{{ e.Apellido }}</td>
+					<td>{{ e.Oficio }}</td>
+					<td>{{ e.Salario }}</td>
+
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<h2>Ingreso de paciente
+	</H2>
+
+	<form method="post" action="{{ path('enfermoPagina2') }}">
+
+
+		<div>
+			<label class="form-label">
+				Numero de la SS
+			</label>
+			<input type="number" name="numNSS" class="form-control" id="numNSS">
+		</div>
+		<br>
+
+		<button class="btn btn-primary" type="submit" name="datos" value="Session">
+			Mostrar variables session
+		</button>
+	</form>
+
+	{% if alerta is defined %}
+		<h1 style="color: red ;">{{alerta}}</h1>
+	{% endif %}
+
+
+	{% if enfermos is defined %}
+		<table class="table">
+			<tr>
+				<th>Id</th>
+				<th>Apellido</th>
+				<th>Direccion</th>
+				<th>Fecha</th>
+				<th>Sexo</th>
+				<th>NSS</th>
+			</tr>
+			{% for enfermo in enfermos %}
+				<tr>
+					<td>{{ enfermo.inscripcion }}</td>
+					<td>{{ enfermo.apellido }}</td>
+					<td>{{ enfermo.direccion }}</td>
+					<td>{{ enfermo.fechaNac ? enfermo.fechaNac|date('d-m-Y') : '' }}</td>
+					<td>{{ enfermo.sexo }}</td>
+					<td>{{ enfermo.nss }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+{% endblock %}

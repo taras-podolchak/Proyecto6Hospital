@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+  <table class="table">
+    <thead>
+     <tr>
+      <th>Apellido</th>
+      <th>Oficio</th>
+      <th>Salario</th>
+     </tr>
+    </thead>
+  <tbody>
+     {% for e in epms %}
+     <tr>
+      <td>{{ e.apellido }}</td>
+      <td>{{ e.oficio }}</td>
+      <td>{{ e.salario }}</td>
+
+     </tr>
+     {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h2>Recuperacion de un objeto desde .NET</h2>
+
+	<br>
+
+	<form method="post" action="{{ path('getPersonaWebApi9') }}">
+		<table>
+			<tr>
+				<th>
+					<label class="form-label">
+						Buscar persona por el nombre
+					</label>
+				</th>
+				<th>
+					<input type="search" name="txtBuscarPersonaNombre">
+					<button type="submit" class="btn btn-primary">
+						Buscar
+					</button>
+				</th>
+				<br>
+			</tr>
+			<tr>
+				<th>
+					<label class="form-label">
+						Buscar persona por la descripcion</label>
+				</th>
+				<th>
+					<input type="search" name="txtBuscarPersonaDescripcion">
+					<button type="submit" class="btn btn-primary">
+						Buscar
+					</button>
+				</th>
+			</tr>
+
+		</table>
+	</form>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Descripcion</th>
+				<th>Edad</th>
+				<th>Fecha</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if pers is defined %}
+
+				{% for per in pers %}
+
+					<tr>
+						<td>{{ per.name }}</td>
+						<td>{{ per.description }}</td>
+						<td>{{ per.edad }}</td>
+						<td>{{ per.time }}</td>
+
+					</tr>
+				{% endfor %}
+			{% else %}
+
+				<tr>
+					<td>{{ per.name }}</td>
+					<td>{{ per.description }}</td>
+					<td>{{ per.edad }}</td>
+					<td>{{ per.time }}</td>
+
+				</tr>
+			{% endif %}
+
+		</tbody>
+	</table>
+{% endblock %}

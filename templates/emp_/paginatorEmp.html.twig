@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Paginator</h1>
+
+	<h5>LISTADO DE EMPLEADOS
+	</h5>
+
+	<table class="table">
+
+		<tr>
+			<th style="width: 50px;">
+				Num.
+			</th>
+			<th style="width: 225px;">
+				Apellido
+			</th>
+			<th style="width: 225px;">
+				Oficio
+			</th>
+			<th style="width: 225px;">
+				Dir
+			</th>
+			<th style="width: 225px;">
+				Fecha alta
+			</th>
+			<th style="width: 225px;">
+				Puesto
+			</th>
+			<th style="width: 225px;">
+				Salario
+			</th>
+			<th style="width: 225px;">
+				Comicion
+			</th>
+		</tr>
+		<tr>
+			{% for fila in datosP %}
+				<td>
+					{{ fila.empNo }}
+				</td>
+				<td>
+					{{ fila.apellido }}
+				</td>
+				<td>
+					{{ fila.oficio }}
+				</td>
+				<td>
+					{{ fila.dir }}
+				</td>
+				<td>
+					{{ fila.fechaAlt ? fila.fechaAlt|date('d-m-Y') : '' }}
+				</td>
+				<td>
+					{{ fila.salario }}
+				</td>
+				<td>
+					{{ fila.comision }}
+				</td>
+				<td>
+					{{ fila.deptNo }}
+				</td>
+
+			</tr>
+
+		{% endfor %}
+
+	</table>
+
+	<div>
+		{{ knp_pagination_render(datosP) }}
+	</div>
+
+{% endblock %}

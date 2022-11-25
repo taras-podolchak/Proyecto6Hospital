@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h1 align="center">Ficha de Cliente</h1><br>
+
+	<form action="{{ path('AltaCliente') }}" method="post">
+
+		<p>Nombre
+			<input type="text" name="Nombre"/></p>
+		<p>Primer Apellido
+			<input type="text" name="Apellido1"/>
+			Segundo Apellido
+			<input type="text" name="Apellido2"/></p>
+		<p>Domicilio
+			<input type="text" name="Domicilio"/></p>
+
+
+		<p>Ciudad
+			<select name="cmbCiudad">
+				<option value="Madrid">Madrid</option>
+				<option value="Girona">Girona</option>
+				<option value="Malaga">Malaga</option>
+				<option value="Marbella">Marbella</option>
+			</select>
+		</p>
+
+		<p>Sexo
+			<input type="radio" name="Sexo" value="Hombre"/>Hombre
+			<input type="radio" name="Sexo" value="Mujer"/>Mujer<br>
+		</p>
+
+		<p>S.O.
+			<input type="checkbox" name="SOs[]" value="Windows 8"/>Windows 8
+			<input type="checkbox" name="SOs[]" value="W 2008"/>W 2008
+			<input type="checkbox" name="SOs[]" value="Linux"/>Linux<br>
+		</p>
+
+		<p>Introduzca sus comentarios</p>
+		<textarea name="comentarios" rows="10" cols="40">Escribe aquí tus comentarios</textarea><br>
+
+		<input type="submit" value="Enviar"/>
+		<input type="submit" value="Borrar"/>
+
+
+	</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enfermo{% endblock %}
+
+{% block body %}
+    <h1>Enfermo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Inscripcion</th>
+                <td>{{ enfermo.inscripcion }}</td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ enfermo.apellido }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ enfermo.direccion }}</td>
+            </tr>
+            <tr>
+                <th>FechaNac</th>
+                <td>{{ enfermo.fechaNac ? enfermo.fechaNac|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ enfermo.sexo }}</td>
+            </tr>
+            <tr>
+                <th>Nss</th>
+                <td>{{ enfermo.nss }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_enfermo_index') }}">back to list</a>
+
+    <a href="{{ path('app_enfermo_edit', {'inscripcion': enfermo.inscripcion}) }}">edit</a>
+
+    {{ include('enfermo/_delete_form.html.twig') }}
+{% endblock %}

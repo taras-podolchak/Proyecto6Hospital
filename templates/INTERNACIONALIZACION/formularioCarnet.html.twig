@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<table class="form">
+	
+
+		<b>{% trans %}nombre{% endtrans %}</b>
+		<input type="text" name="txtNombre"/><BR/>
+
+		<b>{% trans %}primerApellido{% endtrans %}</b>
+		<input type="text" name="txtApellido"/><BR/>
+
+		<b>{% trans %}segundoApellido{% endtrans %}</b>
+		<input type="text" name="txtApellido"/><BR/>
+
+		<b>{% trans %}telefono{% endtrans %}</b>
+		<input type="text" name="txtApellido"/><BR/>
+
+		<b>{% trans %}email{% endtrans %}</b>
+		<input type="text" name="txtApellido"/><BR/>
+
+		<b>{% trans %}confiramrEmail{% endtrans %}</b>
+		<input type="text" name="txtApellido"/><BR/>
+
+		<div>
+			<b>{% trans %}1peg{% endtrans %}</b><BR/>
+			<input type="radio" name="drone">
+			<label>{% trans %}si{% endtrans %}</label>
+
+			<input type="radio" name="drone">
+			<label>{% trans %}no{% endtrans %}</label>
+		</div>
+
+		<div>
+			<b>{% trans %}2peg{% endtrans %}</b><BR/>
+			<input type="radio" name="drone">
+			<label>{% trans %}si{% endtrans %}</label>
+
+			<input type="radio" name="drone">
+			<label>{% trans %}no{% endtrans %}</label>
+		</div>
+
+		<div>
+			<b>{% trans %}3peg{% endtrans %}</b><BR/>
+			<input type="radio" name="drone">
+			<label>{% trans %}si{% endtrans %}</label>
+
+			<input type="radio" name="drone">
+			<label>{% trans %}no{% endtrans %}</label>
+		</div>
+	</table>
+{% endblock %}

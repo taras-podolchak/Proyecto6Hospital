@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h1>Eliminar Procedure</h1>
+
+	<form name="form1" method="POST" action="{{ path('procedureDoctorAlta') }}">
+		<table class="table">
+
+			Introduzca Hospital cod
+			<input class="form-control" type="number" name="numHospCod"/>
+
+			<br>
+
+			Introduzca apellido del Doctor
+			<input class="form-control" type="text" name="txtApellido"/>
+
+			<br>
+
+			Introduzca especialidad del Doctor
+			<input class="form-control" type="text" name="txtEspecialidad"/>
+
+			<br>
+
+			Introduzca el salario del Doctor
+			<input class="form-control" type="number" name="txtSalario"/>
+
+			<br>
+
+			<input class="btn btn-primary" type="submit" value="Dar de alta"/>
+
+		</table>
+
+	</form>
+
+	{% if afectados is defined %}
+		<h1 style="color:blue;">DATOS BORRADOS:
+			{{afectados}}</h1>
+	{% endif %}
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Hospital Cod</th>
+				<th>Apellido</th>
+				<th>Especialidad</th>
+				<th>Salario</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for doctor in doctores %}
+				<tr>
+					<td>{{ doctor.doctorNo }}</td>
+					<td>{{ doctor.hospitalCod }}</td>
+					<td>{{ doctor.apellido }}</td>
+					<td>{{ doctor.especialidad }}</td>
+					<td>{{ doctor.salario }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

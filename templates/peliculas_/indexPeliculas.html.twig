@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!
+{% endblock %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>PAGINA COMPRAPOR GÉNERO (COMPRAGENERO.JSP)</h1>
+
+
+	{% if peliculas is defined %}
+		<form action="{{ path('homePeliculas') }}" method="post">
+			{% for genero in generos %}
+				<button type="submit" name="botonGenero" value="{{genero.idgenero}}">
+					{{genero.genero}}</button>
+			{% endfor %}
+			<table class="table">
+				<tr>
+					<th></th>
+					<th>Titulo</th>
+					<th>Precio</th>
+				</tr>
+				{% for pelicula in peliculas %}
+					<tr>
+						<td>
+							<input type="checkbox" name="check[]" value="{{ pelicula.idpelicula }}">
+						</td>
+						<td>{{ pelicula.titulo }}</td>
+						<td>{{ pelicula.precio }}$</td>
+					</tr>
+				{% endfor %}
+			</table>
+			<input type="submit" name="boton" value="Comprar" class="btn btn-primary"/>
+			<input type="submit" name="boton" value="Ver carrito" class="btn btn-primary"/>
+			<button class="btn btn-primary">
+				<a style=" color:azure" href="{{ path('methodLimpiarPeliculas') }}">limpiar</a>
+			</button>
+		</form>
+	{% endif %}
+
+	{% if carritos is defined %}
+		<table class="table">
+			<tr>
+				<th>Imagen</th>
+				<th>Titulo</th>
+				<th>Director</th>
+				<th>Actores</th>
+				<th>Argumento</th>
+				<th>Precio</th>
+			</tr>
+			{% for pelicula in carritos %}
+				<tr>
+					<td><img src="/CARTELES/{{pelicula.foto}}" width="100" height="130" align="center"></td>
+					<td>{{ pelicula.titulo }}</td>
+					<td>{{ pelicula.director }}</td>
+					<td>{{ pelicula.actores }}</td>
+					<td>{{ pelicula.argumento }}</td>
+					<td>{{ pelicula.precio }}$</td>
+				</tr>
+			{% endfor %}
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th>El precio final es</th>
+				<th>{{ precio}}
+					$</th>
+			</tr>
+		</table>
+		<button class="btn btn-primary">
+			<a style=" color:azure" href="{{ path('homePeliculas') }}">Volver a comprar</a>
+		</button>
+	{% endif %}
+{% endblock %}

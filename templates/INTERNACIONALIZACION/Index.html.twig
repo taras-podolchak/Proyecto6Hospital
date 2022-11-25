@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<H2>Locale: {{idioma}}</H2>
+
+	<b>{% trans %}mensajenombre{% endtrans %}</b>
+	<input type="text" name="txtNombre"/><BR/>
+	
+	<b>{% trans %}mensajeapellido{% endtrans %}</b>
+	<input type="text" name="txtApellido"/><BR/>
+	
+	<b>{% trans %}mensajeedad{% endtrans %}</b>
+	<input type="text" name="txtEdad"/><BR/>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Hospital Cod</th>
+				<th>Apellido</th>
+				<th>Especialidad</th>
+				<th>Salario</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for doctor in doctores %}
+				<tr>
+					<td>{{ doctor.doctorNo }}</td>
+					<td>{{ doctor.hospitalCod }}</td>
+					<td>{{ doctor.apellido }}</td>
+					<td>{{ doctor.especialidad }}</td>
+					<td>{{ doctor.salario }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>

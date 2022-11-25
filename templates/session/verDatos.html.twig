@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<h1 style="color:blue;">DATOS EN LA SESSION</h1>
+
+
+	HOLA
+	{{nombrevariable}},
+	{{apellidovariable}}
+	<HR>
+	<H3>SE PUEDE ACCEDER A LAS VARIABLES DESDE LA PLANTILLA</H3>
+	{{ app.session.get('edad') }},
+	{{ app.session.get('altura') }}
+
+
+{% endblock %}

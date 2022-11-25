@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Codigo Postal</th>
+				<th>Calle</th>
+				<th>Ciudad</th>
+				<th>Pagina Web</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for dato in datos %}
+				<tr>
+					<td>{{dato.title }}</td>
+					<td>{{dato.address['postal-code']}}</td>
+					<td>{{dato.address['street-address']}}</td>
+					<td>{{dato.address['locality']}}</td>
+					<td>
+						<a href="{{dato.address['district']['@id']}}">Pdf</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

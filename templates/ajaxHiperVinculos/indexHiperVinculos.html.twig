@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<script src="/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+	<h3>Pulsa en el enlace:</h3>
+
+	<a href="#" onclick="verDatos(1,'Benito');">Datos 1</a><BR/>
+	<a href="#" onclick="verDatos(2,'Alex');">Datos 2</a><BR/>
+	<a href="#" onclick="verDatos(3,'Andrea');">Datos 3</a><BR/>
+
+	<HR/>
+
+	<div id="detalleget"></div>
+
+	<HR/>
+
+	<script>
+		function verDatos(id, nombre) {
+			$.ajax({
+				type: "GET",
+				url: "{{ path('Recuperar') }}",
+				data: "id=" + id + "&nombre=" + nombre,
+				success: function (msg) {
+					$("#detalleget").html(msg);
+				}
+			});
+		}
+	</script>
+
+{% endblock %}

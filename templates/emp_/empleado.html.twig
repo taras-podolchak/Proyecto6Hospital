@@ -1,0 +1,32 @@
+<HR/>
+<br>
+
+<table class="table">
+	<tr>
+		<th style="width: 50px;">Num.</th>
+		<th style="width: 225px;">Apellido</th>
+		<th style="width: 225px;">Oficio</th>
+		<th style="width: 225px;">Dir</th>
+		<th style="width: 225px;">alta</th>
+		<th style="width: 225px;">Salario</th>
+		<th style="width: 225px;">Comicion</th>
+		<th style="width: 225px;">Departamento</th>
+		<th style="width: 225px;">Imprimir</th>
+	</tr>
+	<tr>
+		<td>{{ empleado.empNo}}</td>
+		<td>{{ empleado.apellido }}</td>
+		<td>{{ empleado.oficio }}</td>
+		<td>{{ empleado.dir }}</td>
+		<td>{{ empleado.fechaAlt ? empleado.fechaAlt|date('d-m-Y') : '' }}</td>
+		<td>{{ empleado.salario }}</td>
+		<td>{{ empleado.comision }}</td>
+		<td>{{ empleado.deptNo }}</td>
+		<td>
+			<a style=" float:center"href="{{ path('generatePDF_Empleado', {id: empleado.empNo}) }}">Generar PDF</a>
+		</td>
+
+	</tr>
+</table>
+
+

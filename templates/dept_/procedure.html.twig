@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h1>Eliminar Procedure</h1>
+
+	<form name="form1" method="POST" action="{{ path('eliminarDepart') }}">
+		<table class="table">
+
+			Introduzca ID Departamento
+			<input class="form-control" type="text" name="txtId"/>
+
+			<br>
+
+			<input class="btn btn-primary" type="submit" value="Borrar"/>
+
+		</table>
+
+	</form>
+
+	{% if afectados is defined %}
+		<h1 style="color:blue;">DATOS BORRADOS:
+			{{afectados}}</h1>
+	{% endif %}
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Localidad</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for dpartamento in dpartamentos %}
+				<tr>
+					<td>{{ dpartamento.deptNo }}</td>
+					<td>{{ dpartamento.dnombre }}</td>
+					<td>{{ dpartamento.loc }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

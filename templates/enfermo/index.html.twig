@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enfermo index{% endblock %}
+
+{% block body %}
+    <h1>Enfermo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Inscripcion</th>
+                <th>Apellido</th>
+                <th>Direccion</th>
+                <th>FechaNac</th>
+                <th>Sexo</th>
+                <th>Nss</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for enfermo in enfermos %}
+            <tr>
+                <td>{{ enfermo.inscripcion }}</td>
+                <td>{{ enfermo.apellido }}</td>
+                <td>{{ enfermo.direccion }}</td>
+                <td>{{ enfermo.fechaNac ? enfermo.fechaNac|date('Y-m-d') : '' }}</td>
+                <td>{{ enfermo.sexo }}</td>
+                <td>{{ enfermo.nss }}</td>
+                <td>
+                    <a href="{{ path('app_enfermo_show', {'inscripcion': enfermo.inscripcion}) }}">show</a>
+                    <a href="{{ path('app_enfermo_edit', {'inscripcion': enfermo.inscripcion}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_enfermo_new') }}">Create new</a>
+{% endblock %}

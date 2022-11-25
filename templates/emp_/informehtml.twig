@@ -1,0 +1,44 @@
+<table class="table">
+	<tr>
+		<th style="width: 50px;">Num.</th>
+		<th style="width: 225px;">Apellido</th>
+		<th style="width: 225px;">Oficio</th>
+		<th style="width: 225px;">Dir</th>
+		<th style="width: 225px;">alta</th>
+		<th style="width: 225px;">Puesto</th>
+		<th style="width: 225px;">Salario</th>
+		<th style="width: 225px;">Comicion</th>
+	</tr>
+	<tr>
+		{% for empleado in empleados %}
+			<td>{{ empleado.empNo}}</td>
+			<td>{{ empleado.apellido }}</td>
+			<td>{{ empleado.oficio }}</td>
+			<td>{{ empleado.dir }}</td>
+			<td>{{ empleado.fechaAlt ? empleado.fechaAlt|date('d-m-Y') : '' }}</td>
+			<td>{{ empleado.salario }}</td>
+			<td>{{ empleado.comision }}</td>
+			<td>{{ empleado.deptNo }}</td>
+			<td><a style=" float:right" href="#" onclick="verInforme('{{ oficio.oficio }}');">Mostrar Informe</a></td>
+		</tr>
+	{% endfor %}
+</table>
+
+	<HR/>
+
+	<div id="detalleInforme"></div>
+
+	<HR/>
+
+	<script>
+		function verDatos(oficio) {
+			$.ajax({
+				type: "GET",
+				url: "{{ path('getEmpHiperVinculo') }}",
+				data: "oficio=" + oficio,
+				success: function (msg) {
+					$("#detalleInforme").html(msg);
+				}
+				});
+			}
+	</script>

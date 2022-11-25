@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peliculas{% endblock %}
+
+{% block body %}
+    <h1>Peliculas</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idpelicula</th>
+                <td>{{ pelicula.idpelicula }}</td>
+            </tr>
+            <tr>
+                <th>Iddistribuidor</th>
+                <td>{{ pelicula.iddistribuidor }}</td>
+            </tr>
+            <tr>
+                <th>Idgenero</th>
+                <td>{{ pelicula.idgenero }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ pelicula.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Idnacionalidad</th>
+                <td>{{ pelicula.idnacionalidad }}</td>
+            </tr>
+            <tr>
+                <th>Argumento</th>
+                <td>{{ pelicula.argumento }}</td>
+            </tr>
+            <tr>
+                <th>Foto</th>
+                <td>{{ pelicula.foto }}</td>
+            </tr>
+            <tr>
+                <th>FechaEstreno</th>
+                <td>{{ pelicula.fechaEstreno ? pelicula.fechaEstreno|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Actores</th>
+                <td>{{ pelicula.actores }}</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>{{ pelicula.director }}</td>
+            </tr>
+            <tr>
+                <th>Duracion</th>
+                <td>{{ pelicula.duracion }}</td>
+            </tr>
+            <tr>
+                <th>Precio</th>
+                <td>{{ pelicula.precio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_peliculas_index') }}">back to list</a>
+
+    <a href="{{ path('app_peliculas_edit', {'idpelicula': pelicula.idpelicula}) }}">edit</a>
+
+    {{ include('peliculas/_delete_form.html.twig') }}
+{% endblock %}

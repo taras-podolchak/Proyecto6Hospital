@@ -1,0 +1,15 @@
+mensajenombre: Name
+mensajeapellido: Last Name
+mensajeedad: Age
+
+nombre: Name
+primerApellido: Last Name 1
+segundoApellido: Last Name 2
+telefono: Phone
+email: Email
+confiramrEmail: To confirm Email
+1peg: Are you a Real Madrid Membership?
+2peg: Are you under 18 years of age?
+3peg: Do you live outside Spain?
+si: Yes
+no: No

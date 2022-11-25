@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ocupacion index{% endblock %}
+
+{% block body %}
+    <h1>Ocupacion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Inscripcion</th>
+                <th>HospitalCod</th>
+                <th>SalaCod</th>
+                <th>Cama</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ocupacion in ocupacions %}
+            <tr>
+                <td>{{ ocupacion.inscripcion }}</td>
+                <td>{{ ocupacion.hospitalCod }}</td>
+                <td>{{ ocupacion.salaCod }}</td>
+                <td>{{ ocupacion.cama }}</td>
+                <td>
+                    <a href="{{ path('app_ocupacion_show', {'inscripcion': ocupacion.inscripcion}) }}">show</a>
+                    <a href="{{ path('app_ocupacion_edit', {'inscripcion': ocupacion.inscripcion}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ocupacion_new') }}">Create new</a>
+{% endblock %}

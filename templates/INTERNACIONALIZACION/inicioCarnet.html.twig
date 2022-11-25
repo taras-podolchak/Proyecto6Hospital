@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<img src="/CarnetMadridista.bmp" width="500" height="500" align="center">
+	<br>
+	<table class="table">
+		<a class="form-control" href="/INTERNACIONALIZACION/es/formularioCarnet">Español</a>
+		<a class="form-control" href="/INTERNACIONALIZACION/en/formularioCarnet">Ingles</a>
+		<br>
+		<a class="form-control" href="{{ path('formularioCarnet2', {id: "es"}) }}">Español</a>
+		<a class="form-control" href="{{ path('formularioCarnet2', {id: "en"}) }}">Ingles</a>
+	</table>
+
+{% endblock %}

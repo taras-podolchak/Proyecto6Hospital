@@ -1,0 +1,15 @@
+mensajenombre: Nombre
+mensajeapellido: Apellido
+mensajeedad: Edad
+
+nombre: Nombre
+primerApellido: Primer Apellido
+segundoApellido: Segundo Apellido
+telefono: Telefono
+email: Correo
+confiramrEmail: Confiramr Email
+1peg: ¿Eres Socio del Real Madrid?
+2peg: ¿Tienes menos de 18 años?
+3peg: ¿Resides fuera de España?
+si: Si
+no: No

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<script src="/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+	<h3>Pulsa en el enlace:</h3>
+
+	<table class="table">
+		<tr style="width: 225px;">
+			<td>Oficios</td>
+			<td></td>
+			{% for oficio in oficios %}
+				<tr style="width: 225px;">
+					<td>{{ oficio.oficio }}</td>
+					<td><a style=" float:right" href="#" onclick="verDatos('{{ oficio.oficio }}');">Mostrar Empleados</a></td>
+				</tr>
+			{% endfor %}
+		</tr>
+	</table>
+
+	<div id="detalleget"></div>
+
+	<script>
+		function verDatos(oficio) {
+			$.ajax({
+				type: "GET",
+				url: "{{ path('getEmpHiperVinculo') }}",
+				data: "oficio=" + oficio,
+				success: function (msg) {
+					$("#detalleget").html(msg);
+				}
+				});
+			}
+	</script>
+
+{% endblock %}

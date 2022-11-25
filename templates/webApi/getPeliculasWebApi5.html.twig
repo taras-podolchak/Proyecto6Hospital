@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<form method="post" action="{{ path('getPeliculaWebApi5') }}">
+
+		<label class="form-label">
+			Buscar peliculas
+		</label>
+		<input type="search" name="txtBuscarPelicula" class="form-control" placeholder="{{titulo}}">
+		<br>
+		<button type="submit" class="btn btn-primary">
+			Buscar
+		</button>
+	</form>
+
+	{% if datos is defined and datos is not empty %}
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Foto</th>
+					<th>Titulo</th>
+					<th>Director</th>
+					<th>Argumento</th>
+					<th>Treiler</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for dato in datos %}
+					<tr>
+						<td><img src="{{dato.foto}}" width="100" height="130" align="center"></td>
+						<td>{{dato.titulo }}</td>
+						<td>{{dato.director }}</td>
+						<td>{{dato.argumento }}</td>
+						<td>
+							<iframe width="357" height="200" src="https://www.youtube.com/embed/{{dato.youTube}}" title="{{dato.titulo}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<h1>No hay peliculas con este titulo "{{titulo}}"</h1>
+	{% endif %}
+{% endblock %}

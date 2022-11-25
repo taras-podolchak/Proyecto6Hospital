@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peliculas index{% endblock %}
+
+{% block body %}
+    <h1>Peliculas index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idpelicula</th>
+                <th>Iddistribuidor</th>
+                <th>Idgenero</th>
+                <th>Titulo</th>
+                <th>Idnacionalidad</th>
+                <th>Argumento</th>
+                <th>Foto</th>
+                <th>FechaEstreno</th>
+                <th>Actores</th>
+                <th>Director</th>
+                <th>Duracion</th>
+                <th>Precio</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pelicula in peliculas %}
+            <tr>
+                <td>{{ pelicula.idpelicula }}</td>
+                <td>{{ pelicula.iddistribuidor }}</td>
+                <td>{{ pelicula.idgenero }}</td>
+                <td>{{ pelicula.titulo }}</td>
+                <td>{{ pelicula.idnacionalidad }}</td>
+                <td>{{ pelicula.argumento }}</td>
+                <td>{{ pelicula.foto }}</td>
+                <td>{{ pelicula.fechaEstreno ? pelicula.fechaEstreno|date('Y-m-d') : '' }}</td>
+                <td>{{ pelicula.actores }}</td>
+                <td>{{ pelicula.director }}</td>
+                <td>{{ pelicula.duracion }}</td>
+                <td>{{ pelicula.precio }}</td>
+                <td>
+                    <a href="{{ path('app_peliculas_show', {'idpelicula': pelicula.idpelicula}) }}">show</a>
+                    <a href="{{ path('app_peliculas_edit', {'idpelicula': pelicula.idpelicula}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_peliculas_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+<thead>
+	<tr>
+		<th>Nombre</th>
+		<th>Tipo</th>
+	</tr>
+</thead>
+
+<tbody>
+	{% for datos in mislenguajes %}
+		<tr>
+			<td>{{ datos.nombre }}</td>
+			<td>{{ datos.tipo }}</td>
+		</tr>
+	{% endfor %}
+</tbody></table>

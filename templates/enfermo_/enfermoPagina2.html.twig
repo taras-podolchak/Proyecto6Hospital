@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<h1>Alta Enfermo</h1>
+
+	<form name="form1" method="POST" action="{{ path('enfermoPagina3') }}">
+		<table class="table">
+
+			<h5>
+				Numero de SS:
+				{{ app.session.get('NSS') }}</h5>
+
+			Apellido
+			<input class="form-control" type="text" name="txtApellido"/>
+
+			<br>
+
+			Direccion
+			<input class="form-control" type="text" name="txtDireccion"/>
+
+			<br>
+
+			Fecha
+			<input class="form-control" type="date" name="txtDate"/>
+
+			<br>
+
+			Sexo
+			<input class="form-control" type="text" name="txtSexo"/>
+
+			<br>
+
+
+			<input class="btn btn-primary" type="submit" value="Dar de alta"/>
+
+		</table>
+
+	</form>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>nombre</th>
+			<th>apellido1</th>
+			<th>apellido2</th>
+			<th>domicilio</th>
+			<th>ciudad</th>
+			<th>sexo</th>
+			<th>sO</th>
+			<th>comentario</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for cliente in clientes %}
+			<tr>
+				<td>{{ cliente.id }}</td>
+				<td>{{ cliente.nombre }}</td>
+				<td>{{ cliente.apellido1 }}</td>
+				<td>{{ cliente.apellido2 }}</td>
+				<td>{{ cliente.domicilio }}</td>
+				<td>{{ cliente.ciudad }}</td>
+				<td>{{ cliente.sexo }}</td>
+				<td>{{ cliente.sO }}</td>
+				<td>{{ cliente.comentario }}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
